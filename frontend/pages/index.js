@@ -32,11 +32,17 @@ export default function Home() {
       <h1>YTLoad</h1>
       <p>Upload a 5–7 min video → get AI title, description, tags.</p>
 
-      <form onSubmit={handleUpload}>
-        <input type="file" accept="video/*" required
-               onChange={e => setFile(e.target.files[0])} />
-        <button disabled={loading}>{loading ? 'Processing…' : 'Upload'}</button>
-      </form>
+      <form onSubmit={handleUpload} aria-label="Video upload">
+  <label>
+    Choose 5–7 min video:
+    <input type="file" accept="video/*" required
+           onChange={e => setFile(e.target.files?.[0])}
+           aria-label="Video file" />
+  </label>
+  <button disabled={loading} aria-label="Upload video">
+    {loading ? 'Processing…' : 'Upload'}
+  </button>
+</form>
 
       {meta && (
         <section style={{marginTop:30}}>
