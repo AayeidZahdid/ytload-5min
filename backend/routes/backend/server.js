@@ -2,18 +2,16 @@ const express = require('express')
 const cors    = require('cors')
 const multer  = require('multer')
 const upload  = multer({ dest: 'tmp/' })
-const app     = express()
 
-app.use(cors()) // allow all origins
+const app = express()
+app.use(cors()) // ← allows all origins
 app.use(express.json())
 
-// health check
 app.get('/health', (_, res) => res.json({ status: 'ok' }))
 
-// upload endpoint
 app.post('/upload', upload.single('video'), async (req, res) => {
-  // TODO: Cloudinary + OpenAI here
-  return res.json({
+  // placeholder until Cloudinary + OpenAI
+  res.json({
     title: 'AI Title Placeholder',
     description: 'AI Description Placeholder',
     tags: ['tag1', 'tag2', 'tag3']
