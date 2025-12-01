@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const API_URL = 'https://ytload-api.onrender.com'   // ← your Render URL
+const API_URL = 'https://ytload-api-v2.onrender.com'
 
 export default function Home() {
   const [file, setFile]   = useState(null)
