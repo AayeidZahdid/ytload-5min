@@ -4,7 +4,11 @@ const multer  = require('multer')
 const upload  = multer({ dest: 'tmp/' })
 const app     = express()
 
-app.use(cors())
+app.use(cors({
+  origin: 'https://ytload-5min-u8no.vercel.app',   // allow only your frontend
+  methods: ['GET', 'POST', 'OPTIONS'],             // allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'] // allowed headers
+}))
 app.use(express.json())
 
 app.get('/health', (_, res) => res.sendStatus(200))
