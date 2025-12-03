@@ -22,9 +22,11 @@ export default function Home() {
     fd.append('video', file)
 
     const res = await fetch(`${API_URL}/upload`, { method: 'POST', body: fd })
-    const json = await res.json()
-    setMeta(json.data)
-    setLoad(false)
+console.log('Upload response', res.status, await res.text()) // ← ADD THIS LINE
+if (!res.ok) throw new Error('Upload failed')
+const json = await res.json()
+setMeta(json.data)
+setLoad(false)
   }
 
   return (
