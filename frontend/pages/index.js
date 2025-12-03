@@ -26,6 +26,7 @@ console.log('Upload response', res.status) // log status only
 if (!res.ok) throw new Error('Upload failed')
 const json = await res.json()
 setMeta(json.data)
+console.log('Received meta', json.data) // so you see it in Console
 setLoad(false)
   }
 
