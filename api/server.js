@@ -9,11 +9,13 @@ app.use(express.json())
 
 app.get('/health', (_, res) => res.sendStatus(200))
 app.post('/upload', upload.single('video'), async (req, res) => {
-  // TODO: Cloudinary + OpenAI here
-  res.json({
-    title: 'AI Title Placeholder',
-    description: 'AI Description Placeholder',
-    tags: ['tag1', 'tag2', 'tag3']
+  // TODO: real Cloudinary + OpenAI here
+  return res.json({
+    data: {
+      title: 'AI Title Placeholder',
+      description: 'AI Description Placeholder',
+      tags: ['tag1', 'tag2', 'tag3']
+    }
   })
 })
 
